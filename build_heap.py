@@ -12,7 +12,7 @@ def build_heap(data):
     if a == len(data)-1:
         swaps = 0       
     return swaps
-
+# get min 
 
 def main():
     
@@ -27,7 +27,7 @@ def main():
         data = list(map(int, input().split()))
     elif "F" in text:
         filename = input()
-        with open ("./test/" + filename, mode="r") as file:
+        with open ("./" + filename, mode="r") as file:
             n = file.readline()
             data = file.readline()
             data = list(map(int, data.split()))
