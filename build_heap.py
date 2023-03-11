@@ -2,6 +2,8 @@
 
 
 def build_heap(data):
+
+    
     swaps = []
     # TODO: Creat heap and heap sort
     # try to achieve  O(n) and not O(n2)
@@ -10,10 +12,21 @@ def build_heap(data):
         if data[i] < data[i+1]:
             a = a+1
     if a == len(data)-1:
-        swaps = 0       
+        swaps = 0
+        
+    else:
+        
+        n=int(len(data))
+        if len(data) % 2 ==0:
+            rightChild = data[-1]
+        else:
+            leftChild = data[-1]
+                
     return swaps
-# get min 
-
+#parent i/2
+#leftChild 2i
+#rightChild 2i+1
+    
 def main():
     
     # TODO : add input and corresponding checks
@@ -43,9 +56,9 @@ def main():
 
 
     # output all swaps
-    print(len(swaps))
-    for i, j in swaps:
-        print(i, j)
+    #print(len(swaps))
+    #for i, j in swaps:
+       # print(i, j)
 
 
 if __name__ == "__main__":
