@@ -17,8 +17,43 @@ def build_heap(data):
     else:
         
         n=int(len(data))
-        if len(data) % 2 ==0:
+        if len(data) % 2 !=0:
             rightChild = data[-1]
+            print(rightChild)
+            leftChild = data[data.index(rightChild) - 1]
+            print(leftChild)
+            parent = data[data.index(leftChild)//2]
+            print(parent)
+            for i in range (n-2, -1, -1):
+                if rightChild < parent:
+                    index1 = data.index(rightChild)
+                    index2 = data.index(parent)
+                    #i[b], i[a] = i[a], i[b]
+                    #swaps.append()
+                    data[index2], data[index1] = data[index1], data[index2]
+                    print(data)
+                    leftChild = data[i]
+                    #print(leftChild)
+                    parent = data[data.index(leftChild)//2]
+                   # print(parent)
+                if leftChild < parent:
+                    index1 = data.index(leftChild)
+                    index2 = data.index(parent)
+                    #i[b], i[a] = i[a], i[b]
+                    #swaps.append()
+                    data[index2], data[index1] = data[index1], data[index2]
+                    print(data)
+                rightChild = data[i+1]
+                print(rightChild)
+                #leftChild = data[i]
+                parent=leftChild
+                print(parent)
+                #print(leftChild)
+                #leftChild = data[data.index(parent)*2]
+                parent = data[data.index(leftChild)//2]
+                
+
+
         else:
             leftChild = data[-1]
                 
