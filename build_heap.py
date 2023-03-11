@@ -5,8 +5,12 @@ def build_heap(data):
     swaps = []
     # TODO: Creat heap and heap sort
     # try to achieve  O(n) and not O(n2)
-
-
+    a = 0
+    for i in range(len(data)-1):
+        if data[i] < data[i+1]:
+            a = a+1
+    if a == len(data)-1:
+        swaps = 0       
     return swaps
 
 
