@@ -67,7 +67,7 @@ def main():
         with open ("./tests/" + filename, mode="r") as file:
             allFile = file.read()
             a  = allFile.splitlines()
-            n = a[0]
+            n = int(a[0])
             data = a[1]
             data = list(map(int, data.split()))
             assert len(data) == n
