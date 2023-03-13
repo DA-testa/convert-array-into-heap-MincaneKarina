@@ -64,9 +64,10 @@ def main():
     elif "F" in text:
         filename = input()
         with open ("./tests/" + filename, mode="r") as file:
-            allFile = file.read().splitlines()
-            n = allFile[0]
-            data = allFile[1]
+            allFile = file.read()
+            a  = allFile.splitlines()
+            n = a[0]
+            data = a[1]
             data = list(map(int, data.split()))
     # checks if lenght of data is the same as the said lenght
     assert len(data) == n
