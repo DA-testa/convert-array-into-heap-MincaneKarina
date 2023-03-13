@@ -60,7 +60,7 @@ def build_heap(data):
                 leftChild = data[data.index(parent)*2 +1]
                 rightChild = data[data.index(parent)*2 +2]
 
-            print(data)
+            #print(data)
                 
     return swaps
 #parent i/2
