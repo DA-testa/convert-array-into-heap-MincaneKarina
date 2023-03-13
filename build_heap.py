@@ -49,14 +49,18 @@ def build_heap(data):
             if data.index(parent) == 0:
                 parent = data[firstParentindex]
                 #print(parent)
-                #leftChild = data[data.index(parent)*2 +1]
+                leftChild = data[data.index(parent)*2 +1]
                 #rightChild = data[data.index(parent)*2 +2]
+                if len(data) % 2 == 0:
+                    rightChild = None
+                else: rightChild = data[data.index(parent)*2 +2]
+
             else:
                 parent = data[data.index(parent) -1]
-            leftChild = data[data.index(parent)*2 +1]
-            rightChild = data[data.index(parent)*2 +2]
+                leftChild = data[data.index(parent)*2 +1]
+                rightChild = data[data.index(parent)*2 +2]
 
-
+            print(data)
                 
     return swaps
 #parent i/2
