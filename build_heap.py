@@ -8,54 +8,45 @@ def build_heap(data):
     # TODO: Creat heap and heap sort
     # try to achieve  O(n) and not O(n2)
     a = 0
-    for i in range(len(data)-1):
+    for i in range(0,len(data)-1):
         if data[i] < data[i+1]:
-            a = a+1
-    if a == len(data)-1:
-        swaps = 0
-        
-    else:
+            a = a + 1
+    if a != len(data)-1:
         
         n=int(len(data))
         if len(data) % 2 !=0:
             rightChild = data[-1]
-            print(rightChild)
+            #print(rightChild)
             leftChild = data[data.index(rightChild) - 1]
-            print(leftChild)
+            #print(leftChild)
             parent = data[data.index(leftChild)//2]
-            print(parent)
-            for i in range (n-2, -1, -1):
-                if rightChild < parent:
-                    index1 = data.index(rightChild)
+            firstParentindex = data.index(parent)
+            #print(parent)
+            for i in range (n-2, -2, -1):
+                if leftChild<rightChild:
+                    child = leftChild
+                else: child = rightChild
+                if  child < parent:
+                    index1 = data.index(child)
                     index2 = data.index(parent)
                     #i[b], i[a] = i[a], i[b]
-                    #swaps.append()
+                    swaps.append([index2, index1])
                     data[index2], data[index1] = data[index1], data[index2]
-                    print(data)
-                    leftChild = data[i]
-                    #print(leftChild)
-                    parent = data[data.index(leftChild)//2]
-                   # print(parent)
-                if leftChild < parent:
-                    index1 = data.index(leftChild)
-                    index2 = data.index(parent)
-                    #i[b], i[a] = i[a], i[b]
-                    #swaps.append()
-                    data[index2], data[index1] = data[index1], data[index2]
-                    print(data)
-                rightChild = data[i+1]
-                print(rightChild)
-                #leftChild = data[i]
-                parent=leftChild
-                print(parent)
-                #print(leftChild)
-                #leftChild = data[data.index(parent)*2]
-                parent = data[data.index(leftChild)//2]
-                
+                    #print(data)
+                    parent = data[index2]
+                    #print(parent)
+
+                if data.index(parent) == 0:
+                    parent = data[firstParentindex]
+                    #print(parent)
+                    leftChild = data[data.index(parent)*2 +1]
+                    rightChild = data[data.index(parent)*2 +2]
+                else:
+                    parent = data[data.index(parent) -1]
+                    leftChild = data[data.index(parent)*2 +1]
+                    rightChild = data[data.index(parent)*2 +2]
 
 
-        else:
-            leftChild = data[-1]
                 
     return swaps
 #parent i/2
@@ -91,9 +82,9 @@ def main():
 
 
     # output all swaps
-    #print(len(swaps))
-    #for i, j in swaps:
-       # print(i, j)
+    print(len(swaps))
+    for i, j in swaps:
+        print(i, j)
 
 
 if __name__ == "__main__":
