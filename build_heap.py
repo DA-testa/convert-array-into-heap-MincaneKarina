@@ -12,19 +12,21 @@ def build_heap(data):
         if data[i] < data[i+1]:
             a = a + 1
     if a != len(data)-1:
-        
         n=int(len(data))
         if len(data) % 2 !=0:
             rightChild = data[-1]
             leftChild = data[data.index(rightChild) - 1]
             parent = data[data.index(leftChild)//2]
             firstParentindex = data.index(parent)
-        
+        else:
+            leftChild = data[data.index(rightChild) - 1]
+            parent = data[data.index(leftChild)//2]
+            firstParentindex = data.index(parent)
             
             for i in range (n-2, -2, -1):
-                if leftChild<rightChild:
-                    child = leftChild
-                else: child = rightChild
+                if leftChild>rightChild:
+                    child = rightChild
+                else: child = leftChild
                 if  child < parent:
                     index1 = data.index(child)
                     index2 = data.index(parent)
@@ -66,8 +68,9 @@ def main():
     elif "F" in text:
         filename = input()
         with open ("./tests/" + filename, mode="r") as file:
-            n = file.readline()
-            data = file.readline()
+            allFile = file.read().splitlines()
+            n = allFile[0]
+            data = allFile[1]
             data = list(map(int, data.split()))
     # checks if lenght of data is the same as the said lenght
     assert len(data) == n
