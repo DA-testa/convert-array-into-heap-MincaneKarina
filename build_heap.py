@@ -32,25 +32,16 @@ def build_heap(data):
             else: child = leftChild
 
 
-
-            #if leftChild>rightChild:
-                #child = rightChild
-            #else: child = leftChild
             if  child < parent:
                 index1 = data.index(child)
                 index2 = data.index(parent)
-                #i[b], i[a] = i[a], i[b]
                 swaps.append([index2, index1])
                 data[index2], data[index1] = data[index1], data[index2]
-                #print(data)
                 parent = data[index2]
-                #print(parent)
 
             if data.index(parent) == 0:
                 parent = data[firstParentindex]
-                #print(parent)
                 leftChild = data[data.index(parent)*2 +1]
-                #rightChild = data[data.index(parent)*2 +2]
                 if len(data) % 2 == 0:
                     rightChild = None
                 else: rightChild = data[data.index(parent)*2 +2]
@@ -59,13 +50,9 @@ def build_heap(data):
                 parent = data[data.index(parent) -1]
                 leftChild = data[data.index(parent)*2 +1]
                 rightChild = data[data.index(parent)*2 +2]
-
-            #print(data)
                 
     return swaps
-#parent i/2
-#leftChild 2i
-#rightChild 2i+1
+
     
 def main():
     
