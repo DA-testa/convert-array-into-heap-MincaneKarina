@@ -16,12 +16,11 @@ def build_heap(data):
         n=int(len(data))
         if len(data) % 2 !=0:
             rightChild = data[-1]
-            #print(rightChild)
             leftChild = data[data.index(rightChild) - 1]
-            #print(leftChild)
             parent = data[data.index(leftChild)//2]
             firstParentindex = data.index(parent)
-            #print(parent)
+        
+            
             for i in range (n-2, -2, -1):
                 if leftChild<rightChild:
                     child = leftChild
@@ -66,7 +65,7 @@ def main():
         data = list(map(int, input().split()))
     elif "F" in text:
         filename = input()
-        with open ("./" + filename, mode="r") as file:
+        with open ("./tests/" + filename, mode="r") as file:
             n = file.readline()
             data = file.readline()
             data = list(map(int, data.split()))
