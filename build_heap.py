@@ -18,10 +18,6 @@ def build_heap(data):
             leftChild = data[data.index(rightChild) - 1]
             parent = data[data.index(leftChild)//2]
             firstParentindex = data.index(parent)
-        else:
-            leftChild = data[data.index(rightChild) - 1]
-            parent = data[data.index(leftChild)//2]
-            firstParentindex = data.index(parent)
             
             for i in range (n-2, -2, -1):
                 if leftChild>rightChild:
