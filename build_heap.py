@@ -18,30 +18,45 @@ def build_heap(data):
             leftChild = data[data.index(rightChild) - 1]
             parent = data[data.index(leftChild)//2]
             firstParentindex = data.index(parent)
-            
-            for i in range (n-2, -2, -1):
+        if len(data) % 2 == 0:
+            rightChild = None
+            leftChild = data[-1]
+            parent = data[data.index(leftChild)//2]
+            firstParentindex = data.index(parent)  
+
+
+        for i in range (n-2, -2, -1):
+
+            if rightChild:
                 if leftChild>rightChild:
                     child = rightChild
                 else: child = leftChild
-                if  child < parent:
-                    index1 = data.index(child)
-                    index2 = data.index(parent)
-                    #i[b], i[a] = i[a], i[b]
-                    swaps.append([index2, index1])
-                    data[index2], data[index1] = data[index1], data[index2]
-                    #print(data)
-                    parent = data[index2]
-                    #print(parent)
+            else: child = leftChild
 
-                if data.index(parent) == 0:
-                    parent = data[firstParentindex]
-                    #print(parent)
-                    leftChild = data[data.index(parent)*2 +1]
-                    rightChild = data[data.index(parent)*2 +2]
-                else:
-                    parent = data[data.index(parent) -1]
-                    leftChild = data[data.index(parent)*2 +1]
-                    rightChild = data[data.index(parent)*2 +2]
+
+
+            #if leftChild>rightChild:
+                #child = rightChild
+            #else: child = leftChild
+            if  child < parent:
+                index1 = data.index(child)
+                index2 = data.index(parent)
+                #i[b], i[a] = i[a], i[b]
+                swaps.append([index2, index1])
+                data[index2], data[index1] = data[index1], data[index2]
+                #print(data)
+                parent = data[index2]
+                #print(parent)
+
+            if data.index(parent) == 0:
+                parent = data[firstParentindex]
+                #print(parent)
+                leftChild = data[data.index(parent)*2 +1]
+                rightChild = data[data.index(parent)*2 +2]
+            else:
+                parent = data[data.index(parent) -1]
+                leftChild = data[data.index(parent)*2 +1]
+                rightChild = data[data.index(parent)*2 +2]
 
 
                 
