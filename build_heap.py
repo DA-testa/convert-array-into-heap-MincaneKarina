@@ -61,6 +61,7 @@ def main():
     # input from keyboard
         n = int(input())
         data = list(map(int, input().split()))
+        assert len(data) == n
     elif "F" in text:
         filename = input()
         with open ("./tests/" + filename, mode="r") as file:
@@ -69,8 +70,9 @@ def main():
             n = a[0]
             data = a[1]
             data = list(map(int, data.split()))
+            assert len(data) == n
     # checks if lenght of data is the same as the said lenght
-    assert len(data) == n
+    #assert len(data) == n
 
     # calls function to assess the data 
     # and give back all swaps
