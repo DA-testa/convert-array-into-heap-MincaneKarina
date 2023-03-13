@@ -27,10 +27,8 @@ def build_heap(data):
 
         for i in range (n-2, -2, -1):
 
-            if rightChild:
-                if leftChild>rightChild:
+            if rightChild and leftChild>rightChild:
                     child = rightChild
-                else: child = leftChild
             else: child = leftChild
 
 
@@ -51,12 +49,12 @@ def build_heap(data):
             if data.index(parent) == 0:
                 parent = data[firstParentindex]
                 #print(parent)
-                leftChild = data[data.index(parent)*2 +1]
-                rightChild = data[data.index(parent)*2 +2]
+                #leftChild = data[data.index(parent)*2 +1]
+                #rightChild = data[data.index(parent)*2 +2]
             else:
                 parent = data[data.index(parent) -1]
-                leftChild = data[data.index(parent)*2 +1]
-                rightChild = data[data.index(parent)*2 +2]
+            leftChild = data[data.index(parent)*2 +1]
+            rightChild = data[data.index(parent)*2 +2]
 
 
                 
